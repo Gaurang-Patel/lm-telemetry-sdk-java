@@ -1,0 +1,17 @@
+apply from: "$rootDir/gradle/instrumentation.gradle"
+
+group 'com.logicmonitor'
+version '0.0.1-alpha'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly group: 'io.opentelemetry.instrumentation', name: 'opentelemetry-log4j-2.13.2', version: '1.9.2-alpha'
+    compileOnly 'org.apache.logging.log4j:log4j-core:2.19.0'
+}
+
+test {
+    useJUnitPlatform()
+}
