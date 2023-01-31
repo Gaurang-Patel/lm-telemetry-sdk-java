@@ -49,7 +49,7 @@ public class LMLogExporter implements LogRecordExporter {
                 metadata.put("span_id",log.getSpanContext().getSpanId());
             }
             try {
-                lmLogs.sendLogs(stringBuilder.toString(), resourceIds, metadata);
+                lmLogs.sendLogs(stringBuilder.toString(), resourceIds, metadata,NANOSECONDS.toMillis(log.getEpochNanos()));
             } catch (Exception e) {
             }
 
